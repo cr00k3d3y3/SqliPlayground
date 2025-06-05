@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head><title>SQL Injection Lab</title></head>
+<body>
+    <h2>Post a Comment</h2>
+    {% if message %}
+        <p style="color:red;">{{ message }}</p>
+    {% endif %}
+    <form method="post">
+        <textarea name="content" placeholder="Write a comment..."></textarea><br>
+        <input type="submit" value="Submit">
+    </form>
+
+    <h3>Comments:</h3>
+    {% for comment in comments %}
+        <p>{{ comment[1]|safe }}</p>
+    {% endfor %}
+     <p><a href="/dashboard">← Back to Dashboard</a></p>
+</body>
+</html>

@@ -1,0 +1,16 @@
+<!-- templates/blind.html -->
+<!DOCTYPE html>
+<html>
+<head><title>Blind SQLi</title></head>
+<body>
+    <h2>Blind SQL Injection</h2>
+    <form method="post">
+        <input name="username" placeholder="Username to test"><br>
+        <input type="submit" value="Check">
+    </form>
+    {% if result %}
+        <p><b>{{ result }}</b></p>
+    {% endif %}
+    <a href="/dashboard">← Dashboard</a>
+</body>
+</html>

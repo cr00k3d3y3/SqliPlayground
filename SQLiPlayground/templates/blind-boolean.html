@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Boolean-Based Blind SQLi</title>
+</head>
+<body>
+    <h2>Blind SQLi (Boolean-Based)</h2>
+    <form method="post">
+        <input name="username" placeholder="Try guessing username">
+        <input type="submit" value="Search">
+    </form>
+
+    {% if result %}
+        <p><b>{{ result }}</b></p>
+    {% endif %}
+
+    <a href="/dashboard">← Back to Dashboard</a>
+</body>
+</html>

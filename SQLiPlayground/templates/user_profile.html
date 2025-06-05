@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+<head><title>User Profile</title></head>
+<body>
+    <h2>User Profile</h2>
+    {% if user %}
+        <p><b>ID:</b> {{ user.id }}</p>
+        <p><b>Username:</b> {{ user.username }}</p>
+    {% else %}
+        <p>User not found.</p>
+    {% endif %}
+    <a href="/dashboard">← Dashboard</a>
+</body>
+</html>

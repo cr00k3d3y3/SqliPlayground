@@ -1,0 +1,37 @@
+
+
+services:
+  web:
+    build: .
+    ports:
+      - "5000:5000"
+    depends_on:
+      - db
+    environment:
+      - MYSQL_HOST=db
+      - MYSQL_USER=lab_user
+      - MYSQL_PASSWORD=lab_pass
+      - MYSQL_DB=lab_db
+
+  db:
+    image: mysql:8
+    environment:
+      MYSQL_DATABASE: lab_db
+      MYSQL_USER: lab_user
+      MYSQL_PASSWORD: lab_pass
+      MYSQL_ROOT_PASSWORD: root
+    volumes:
+      - ./init.sql:/docker-entrypoint-initdb.d/init.sql
+
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin
+    restart: always
+    ports:
+      - "8081:80"
+    environment:
+      - PMA_HOST=db
+      - PMA_USER=lab_user
+      - PMA_PASSWORD=lab_pass
+
+volumes:
+  db_data:
